@@ -1,0 +1,16 @@
+# Local database configuration
+db.php
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+
+# Temporary and log files
+*.log
+*.tmp
+*.bak
+
+# Operating system files
+.DS_Store
+Thumbs.db
