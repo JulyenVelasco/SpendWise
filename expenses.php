@@ -752,6 +752,20 @@ function escape($value) {
 
         }
 
+
+/* EXTRA MOBILE RESPONSIVENESS */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 8px;
+    }
+}
+
+
     </style>
 
 </head>
@@ -1125,7 +1139,13 @@ function escape($value) {
 
                                             <input
                                                 type="hidden"
-                                                name="id"
+                                                name="csrf_token"
+                                                value="<?php echo escape($_SESSION["csrf_token"]); ?>"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="id" 
                                                 value="<?php echo (int) $expense["id"]; ?>"
                                             >
 
@@ -1509,6 +1529,12 @@ function escape($value) {
                     deleteButton.className = "delete-button";
                     deleteButton.textContent = "Delete";
 
+                    const csrfInput = document.createElement("input");
+                    csrfInput.type = "hidden";
+                    csrfInput.name = "csrf_token";
+                    csrfInput.value = expenseForm.elements["csrf_token"].value;
+
+                    deleteForm.appendChild(csrfInput);
                     deleteForm.appendChild(idInput);
                     deleteForm.appendChild(deleteButton);
 

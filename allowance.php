@@ -590,6 +590,20 @@ function escape($value) {
 
         }
 
+
+/* EXTRA MOBILE RESPONSIVENESS */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 8px;
+    }
+}
+
+
     </style>
 
 </head>
