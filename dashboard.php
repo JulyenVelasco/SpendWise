@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once "db.php";
@@ -16,15 +15,16 @@ $today = date("Y-m-d");
 $sql = "SELECT *
         FROM allowances
         WHERE user_id = :user_id
-        AND start_date <= :today
-        AND end_date >= :today
+        AND start_date <= :today_start
+        AND end_date >= :today_end
         ORDER BY start_date DESC
         LIMIT 1";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute([
     ":user_id" => $user_id,
-    ":today" => $today
+    ":today_start" => $today,
+    ":today_end" => $today
 ]);
 
 $allowance = $stmt->fetch(PDO::FETCH_ASSOC);
